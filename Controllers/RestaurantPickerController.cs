@@ -1,8 +1,7 @@
 // Richard Johnson
 // 10-27-22
 // This API will pick a random restaurant from whichever category the user inputs into the URL
-
-// Peer Review: 
+// Rafael Manzo  confirmed on code running, runs well would say use 1 2 3 as cases perhaps
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,10 +14,12 @@ public class RestaurantPickerController : ControllerBase
     string restaurant = "";
 
     [HttpGet]
-    [Route("Restaurant/FastFood")]
+    // This route will be how the user chooses which category they want, as they will type the category in the URL
+    [Route("FastFood")]
 
     public string FastFoodPicker()
     {
+        // This random number generator will generate a random number between 1 and 11
         Random random = new Random();
         int fastFood = random.Next(1,11);
 
@@ -50,7 +51,7 @@ public class RestaurantPickerController : ControllerBase
     }
 
     [HttpGet]
-    [Route("Restaurant/ChineseTakeout")]
+    [Route("Chinese")]
 
     public string ChineseTakeoutPicker()
     {
@@ -85,7 +86,7 @@ public class RestaurantPickerController : ControllerBase
     }
 
     [HttpGet]
-    [Route("Restaurant/Italian")]
+    [Route("Italian")]
 
     public string ItalianPicker()
     {
